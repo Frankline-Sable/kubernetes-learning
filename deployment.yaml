@@ -1,0 +1,28 @@
+# We describing a deployment
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+#  naming our deployment
+  name: hello-deployment
+
+spec:
+  replicas: 3
+
+  selector:
+    matchLabels:
+      app: hello
+
+    template:
+      metadata:
+        labels:
+          app: hello
+
+
+
+      spec:
+        containers:
+          -name: hello-container
+          image: nginx
+          ports:
+            -containerPort: 80
