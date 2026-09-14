@@ -1,9 +1,8 @@
-# We describing a deployment
 apiVersion: apps/v1
+
 kind: Deployment
 
 metadata:
-#  naming our deployment
   name: hello-deployment
 
 spec:
@@ -13,16 +12,14 @@ spec:
     matchLabels:
       app: hello
 
-    template:
-      metadata:
-        labels:
-          app: hello
+  template:
+    metadata:
+      labels:
+        app: hello
 
-
-
-      spec:
-        containers:
-          -name: hello-container
+    spec:
+      containers:
+        - name: hello-container
           image: nginx
           ports:
-            -containerPort: 80
+            - containerPort: 80
